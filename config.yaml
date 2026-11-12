@@ -1,0 +1,97 @@
+# ==============================================================================
+# PDF to Video Configuration File
+#
+# Every option below can be customized without editing any source code.
+# Command-line flags override these options when supplied.
+# ==============================================================================
+
+# Directory containing input PDF files or a path to a single PDF file.
+# Default: "input"
+input_folder: "input"
+
+# Directory where generated MP4 videos will be saved.
+# Output videos keep their original filename (e.g. document.pdf -> document.mp4).
+# Default: "output"
+output_folder: "output"
+
+# Duration in seconds that each PDF page frame is shown in the video.
+# Example: 1.5 shows each page for one and a half seconds.
+# Default: 1.0
+seconds_per_page: 1.0
+
+# Path to the background audio/music file (MP3, WAV, AAC, M4A, FLAC, OGG).
+# If set to null or empty, pdf2video will auto-detect any music file placed in
+# the music/ folder or the project root directory.
+# Default: null (auto-detect)
+music_file: null
+
+# Volume of the background music, expressed as a factor of original volume.
+# 1.0 = original full volume, 0.15 = 15% volume (subtle background music).
+# Default: 0.15
+music_volume: 0.15
+
+# Fade-out duration in seconds applied to the audio track at the end of the video.
+# The fade-out is automatically capped so it is never longer than the video itself.
+# Default: 2.0
+music_fade_out_seconds: 2.0
+
+# Target horizontal width in pixels for rendered page images.
+# Height is automatically calculated to preserve each page's aspect ratio.
+# Width and height are always rounded to even numbers to satisfy H.264 constraints.
+# Default: 1920 (Full HD horizontal resolution)
+render_width: 1920
+
+# Background canvas color used for padding/letterboxing when pages vary in size.
+# Supported formats: color name (e.g. "white", "black") or hex code (e.g. "#FFFFFF").
+# Default: "#FFFFFF" (white)
+background_color: "#FFFFFF"
+
+# Output video frame rate in frames per second (fps).
+# A low frame rate (e.g. 2 fps) keeps encoding fast and video size minimal
+# while retaining full static image sharpness and player compatibility.
+# Default: 2
+fps: 2
+
+# Constant Rate Factor (CRF) controlling video compression quality:
+# - Lower values (e.g. 18-20): higher quality, larger file size.
+# - Higher values (e.g. 26-28): lower quality, smaller file size.
+# - CRF 23 is the recommended sweet spot for crystal-clear text and compact size.
+# Default: 23
+crf: 23
+
+# H.264 encoding speed preset:
+# Options: ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow.
+# Slower presets provide better compression efficiency at the cost of encode time.
+# Default: "slow"
+preset: "slow"
+
+# Audio bitrate for AAC encoding (e.g. "64k", "96k", "128k").
+# Default: "64k" (optimal for background ambient audio while keeping size minimal)
+audio_bitrate: "64k"
+
+# Audio channels: "stereo" (2 channels) or "mono" (1 channel).
+# Default: "stereo"
+audio_channels: "stereo"
+
+# Number of parallel worker processes for batch PDF processing.
+# If set to null, pdf2video automatically uses half of available CPU cores (minimum 1).
+# Default: null (auto)
+workers: null
+
+# When searching input_folder, scan subdirectories recursively.
+# Default: false
+recursive: false
+
+# Overwrite existing video files in output_folder. If false, existing outputs are skipped.
+# Default: false
+overwrite: false
+
+# Path to an optional log file where detailed execution logs are written.
+# If set to null, logs are only printed to the console.
+# Default: null
+log_file: null
+
+# Custom path to the ffmpeg executable.
+# If set to null, pdf2video automatically detects ffmpeg in PATH or virtual environments.
+# Default: null
+ffmpeg_path: null
