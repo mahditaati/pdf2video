@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf2video"
+version = "1.0.0"
+description = "Clean, production-quality CLI tool that converts PDF files into high-quality videos with background music"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "pdf2video contributors" }
+]
+keywords = ["pdf", "video", "converter", "ffmpeg", "slideshow"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Multimedia :: Video :: Conversion",
+]
+dependencies = [
+    "pymupdf>=1.24.0",
+    "Pillow>=10.0.0",
+    "PyYAML>=6.0",
+    "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+pdf2video = "pdf2video.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
