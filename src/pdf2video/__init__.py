@@ -1,3 +1,4 @@
-"""pdf2video - Convert PDF documents into high-quality videos with background music."""
+"""PDF to Video Converter package."""
 
 __version__ = "1.0.0"
+__all__ = ["__version__"]
