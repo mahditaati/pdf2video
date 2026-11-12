@@ -14,16 +14,28 @@ A clean, production-quality command-line tool that converts multi-page PDF docum
 
 ---
 
-## Quick Start
+## Quick Start (Easiest Way)
 
-1. Put your PDF files inside the `input/` folder.
-2. Put a background music file (e.g. `.mp3`, `.wav`) inside the `music/` folder (or project root).
-3. Run the conversion command:
+1. Put your PDF files in `input/`
+2. Put your music file in `music/`
+3. Run one command:
    ```bash
-   python -m pdf2video.cli
+   ./run.sh
+   # Or using make:
+   make run
    ```
-   *(or `pdf2video` if installed in your environment)*
-4. Find your rendered MP4 videos in the `output/` folder!
+4. Find your videos in `output/`!
+
+### Quick Shortcuts
+
+| Command | Action |
+|:---|:---|
+| `./run.sh` or `make run` | Convert all PDFs in `input/` to `output/` |
+| `./run.sh document.pdf` | Convert a single PDF file directly |
+| `./run.sh dry` or `make dry` | Preview files to convert without encoding |
+| `./run.sh overwrite` or `make overwrite` | Re-create and overwrite existing videos |
+| `./run.sh test` or `make test` | Run the 37 automated tests |
+| `./run.sh -s 2 --volume 0.2` | Pass any custom options directly |
 
 ---
 
