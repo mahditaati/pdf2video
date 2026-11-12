@@ -42,11 +42,11 @@ class AppConfig:
     music_file: Optional[Path] = None
     music_volume: float = 0.15
     music_fade_out_seconds: float = 2.0
-    render_width: int = 1920
+    render_width: int = 960
     background_color: str = "#FFFFFF"
     fps: int = 2
-    crf: int = 23
-    preset: str = "slow"
+    crf: int = 28
+    preset: str = "veryslow"
     audio_bitrate: str = "32k"
     audio_channels: str = "mono"
     workers: Optional[int] = None

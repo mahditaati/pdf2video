@@ -109,11 +109,11 @@ All options can be set globally in `config.yaml` or overridden on the command li
 | `music_file` | `-m`, `--music` | `null` | Path to background audio file. If null, auto-detects from `music/` or root. |
 | `music_volume` | `--volume` | `0.15` | Background audio volume multiplier (`0.0` = mute, `0.15` = 15%, `1.0` = full). |
 | `music_fade_out_seconds` | `--fade-out` | `2.0` | Duration of audio fade-out at the end of the video (capped at video length). |
-| `render_width` | `-w`, `--width` | `1920` | Target horizontal resolution in pixels. Height adjusts to preserve aspect ratio. |
+| `render_width` | `-w`, `--width` | `960` | Target horizontal resolution in pixels (ultra-compact default). |
 | `background_color` | `--bg-color` | `"#FFFFFF"` | Canvas color used for padding mixed page dimensions (e.g. `"#FFFFFF"`, `"black"`). |
 | `fps` | `--fps` | `2` | Video frame rate. 2 fps keeps static slide files tiny while universally playable. |
-| `crf` | `--crf` | `23` | H.264 Constant Rate Factor (0-51). Lower = sharper/larger, higher = smaller/blurrier. |
-| `preset` | `--preset` | `"slow"` | x264 compression efficiency preset (`ultrafast` to `veryslow`). |
+| `crf` | `--crf` | `28` | H.264 Constant Rate Factor (0-51). Lower = sharper/larger, higher = smaller/blurrier. |
+| `preset` | `--preset` | `"veryslow"` | x264 compression efficiency preset (`ultrafast` to `veryslow`). |
 | `audio_bitrate` | `--bitrate` | `"32k"` | AAC audio stream bitrate (ultra-compact default). |
 | `audio_channels` | `--channels` | `"mono"` | Audio channels (`"mono"` or `"stereo"`). |
 | `workers` | `--workers` | `null` | Number of parallel worker processes. Defaults to half of CPU cores (min 1). |

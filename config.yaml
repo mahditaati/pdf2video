@@ -38,8 +38,8 @@ music_fade_out_seconds: 2.0
 # Target horizontal width in pixels for rendered page images.
 # Height is automatically calculated to preserve each page's aspect ratio.
 # Width and height are always rounded to even numbers to satisfy H.264 constraints.
-# Default: 1920 (Full HD horizontal resolution)
-render_width: 1280
+# Default: 960 (optimal ultra-compact resolution for small size and readable text)
+render_width: 960
 
 # Background canvas color used for padding/letterboxing when pages vary in size.
 # Supported formats: color name (e.g. "white", "black") or hex code (e.g. "#FFFFFF").
@@ -55,15 +55,15 @@ fps: 2
 # Constant Rate Factor (CRF) controlling video compression quality:
 # - Lower values (e.g. 18-20): higher quality, larger file size.
 # - Higher values (e.g. 26-28): lower quality, smaller file size.
-# - CRF 23 is the recommended sweet spot for crystal-clear text and compact size.
-# Default: 23
+# - CRF 28 is the default for maximum lightweight compression while retaining readable text.
+# Default: 28
 crf: 28
 
 # H.264 encoding speed preset:
 # Options: ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow.
 # Slower presets provide better compression efficiency at the cost of encode time.
-# Default: "slow"
-preset: "slow"
+# Default: "veryslow"
+preset: "veryslow"
 
 # Audio bitrate for AAC encoding (e.g. "32k", "64k", "128k").
 # Default: "32k" (ultra-compact audio bandwidth saving 50% audio payload)
