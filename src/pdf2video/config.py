@@ -47,8 +47,8 @@ class AppConfig:
     fps: int = 2
     crf: int = 23
     preset: str = "slow"
-    audio_bitrate: str = "64k"
-    audio_channels: str = "stereo"
+    audio_bitrate: str = "32k"
+    audio_channels: str = "mono"
     workers: Optional[int] = None
     recursive: bool = False
     overwrite: bool = False

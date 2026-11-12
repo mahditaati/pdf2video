@@ -214,6 +214,14 @@ def create_parser() -> argparse.ArgumentParser:
     )
 
     parser.add_argument(
+        "--compact", "--ultra-compact",
+        dest="compact",
+        action="store_true",
+        default=False,
+        help="Apply maximum compression profile (960px width, CRF 28, veryslow preset, 32k mono audio).",
+    )
+
+    parser.add_argument(
         "--log-file",
         dest="log_file",
         type=Path,
@@ -267,6 +275,19 @@ def main(argv: Optional[list[str]] = None) -> int:
         "log_file",
         "ffmpeg_path",
     ]
+
+    # If compact mode profile requested, set optimal compression defaults
+    if getattr(args, "compact", False):
+        compact_profile: dict[str, any] = {
+            "render_width": 960,
+            "crf": 28,
+            "preset": "veryslow",
+            "audio_bitrate": "32k",
+            "audio_channels": "mono",
+        }
+        for k, v in compact_profile.items():
+            if getattr(args, k, None) is None:
+                overrides[k] = v
 
     for field in cli_fields:
         val = getattr(args, field, None)

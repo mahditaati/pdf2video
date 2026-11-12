@@ -37,6 +37,11 @@ if [ "$1" = "dry" ] || [ "$1" = "preview" ]; then
     exec "$PYTHON" -m pdf2video.cli --dry-run "$@"
 fi
 
+if [ "$1" = "compact" ] || [ "$1" = "mini" ]; then
+    shift
+    exec "$PYTHON" -m pdf2video.cli --compact "$@"
+fi
+
 if [ "$1" = "overwrite" ] || [ "$1" = "force" ]; then
     shift
     exec "$PYTHON" -m pdf2video.cli --overwrite "$@"

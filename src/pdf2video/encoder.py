@@ -112,6 +112,18 @@ def encode_video(
             output_label="a",
         )
 
+        audio_args = [
+            "-c:a",
+            "aac",
+            "-b:a",
+            str(audio_bitrate),
+            "-ac",
+            str(channels_count),
+        ]
+        # Optimize sample rate for mono or low bitrate to cut audio payload
+        if channels_count == 1:
+            audio_args.extend(["-ar", "32000"])
+
         cmd.extend([
             "-filter_complex",
             filter_str,
@@ -119,18 +131,21 @@ def encode_video(
             "0:v",
             "-map",
             "[a]",
-            "-c:a",
-            "aac",
-            "-b:a",
-            str(audio_bitrate),
-            "-ac",
-            str(channels_count),
+            *audio_args,
         ])
     else:
         cmd.extend([
             "-map",
             "0:v",
         ])
+
+    # High-efficiency x264 parameters for static slide / document content
+    # Long GOP prevents wasteful I-frame bursts on static frames
+    keyint = max(50, effective_fps * 10)
+    x264_opts = (
+        f"keyint={keyint}:min-keyint={effective_fps}:scenecut=0:"
+        "bframes=8:b-adapt=2:ref=4:aq-mode=2"
+    )
 
     cmd.extend([
         "-c:v",
@@ -143,6 +158,8 @@ def encode_video(
         str(preset),
         "-tune",
         "stillimage",
+        "-x264-params",
+        x264_opts,
         "-r",
         str(effective_fps),
         "-t",

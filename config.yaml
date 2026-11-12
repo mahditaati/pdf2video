@@ -28,7 +28,7 @@ music_file: null
 # Volume of the background music, expressed as a factor of original volume.
 # 1.0 = original full volume, 0.15 = 15% volume (subtle background music).
 # Default: 0.15
-music_volume: 0.15
+music_volume: 0.40
 
 # Fade-out duration in seconds applied to the audio track at the end of the video.
 # The fade-out is automatically capped so it is never longer than the video itself.
@@ -39,7 +39,7 @@ music_fade_out_seconds: 2.0
 # Height is automatically calculated to preserve each page's aspect ratio.
 # Width and height are always rounded to even numbers to satisfy H.264 constraints.
 # Default: 1920 (Full HD horizontal resolution)
-render_width: 1920
+render_width: 1280
 
 # Background canvas color used for padding/letterboxing when pages vary in size.
 # Supported formats: color name (e.g. "white", "black") or hex code (e.g. "#FFFFFF").
@@ -57,7 +57,7 @@ fps: 2
 # - Higher values (e.g. 26-28): lower quality, smaller file size.
 # - CRF 23 is the recommended sweet spot for crystal-clear text and compact size.
 # Default: 23
-crf: 23
+crf: 28
 
 # H.264 encoding speed preset:
 # Options: ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow.
@@ -65,13 +65,13 @@ crf: 23
 # Default: "slow"
 preset: "slow"
 
-# Audio bitrate for AAC encoding (e.g. "64k", "96k", "128k").
-# Default: "64k" (optimal for background ambient audio while keeping size minimal)
-audio_bitrate: "64k"
+# Audio bitrate for AAC encoding (e.g. "32k", "64k", "128k").
+# Default: "32k" (ultra-compact audio bandwidth saving 50% audio payload)
+audio_bitrate: "32k"
 
-# Audio channels: "stereo" (2 channels) or "mono" (1 channel).
-# Default: "stereo"
-audio_channels: "stereo"
+# Audio channels: "mono" (1 channel) or "stereo" (2 channels).
+# Default: "mono" (halves audio file size while remaining perfectly clear for background music)
+audio_channels: "mono"
 
 # Number of parallel worker processes for batch PDF processing.
 # If set to null, pdf2video automatically uses half of available CPU cores (minimum 1).

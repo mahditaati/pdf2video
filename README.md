@@ -31,6 +31,7 @@ A clean, production-quality command-line tool that converts multi-page PDF docum
 | Command | Action |
 |:---|:---|
 | `./run.sh` or `make run` | Convert all PDFs in `input/` to `output/` |
+| `./run.sh compact` or `make compact` | Ultra-compact mode (smallest size: 960px, CRF 28, veryslow, 32k audio) |
 | `./run.sh document.pdf` | Convert a single PDF file directly |
 | `./run.sh dry` or `make dry` | Preview files to convert without encoding |
 | `./run.sh overwrite` or `make overwrite` | Re-create and overwrite existing videos |
@@ -113,13 +114,14 @@ All options can be set globally in `config.yaml` or overridden on the command li
 | `fps` | `--fps` | `2` | Video frame rate. 2 fps keeps static slide files tiny while universally playable. |
 | `crf` | `--crf` | `23` | H.264 Constant Rate Factor (0-51). Lower = sharper/larger, higher = smaller/blurrier. |
 | `preset` | `--preset` | `"slow"` | x264 compression efficiency preset (`ultrafast` to `veryslow`). |
-| `audio_bitrate` | `--bitrate` | `"64k"` | AAC audio stream bitrate. |
-| `audio_channels` | `--channels` | `"stereo"` | Audio channels (`"stereo"` or `"mono"`). |
+| `audio_bitrate` | `--bitrate` | `"32k"` | AAC audio stream bitrate (ultra-compact default). |
+| `audio_channels` | `--channels` | `"mono"` | Audio channels (`"mono"` or `"stereo"`). |
 | `workers` | `--workers` | `null` | Number of parallel worker processes. Defaults to half of CPU cores (min 1). |
 | `recursive` | `-r`, `--recursive` | `false` | Scan input directories recursively. |
 | `overwrite` | `--overwrite` | `false` | Overwrite existing output videos instead of skipping them. |
 | `log_file` | `--log-file` | `null` | Path to optional log file for execution details. |
 | `ffmpeg_path` | `--ffmpeg-path` | `null` | Custom path to the `ffmpeg` executable binary. |
+| N/A | `--compact` | `false` | Apply maximum compression profile (960px, CRF 28, veryslow, 32k mono). |
 | N/A | `--dry-run` | `false` | List files that would be converted without producing videos. |
 | N/A | `--verbose` | `false` | Enable detailed debug logs in console. |
 
