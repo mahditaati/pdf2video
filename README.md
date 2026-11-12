@@ -43,45 +43,55 @@ A clean, production-quality command-line tool that converts multi-page PDF docum
 
 ### Convert a Single PDF File
 ```bash
-python -m pdf2video.cli -i document.pdf -o output/
+./run.sh document.pdf
+# or: python -m pdf2video.cli -i document.pdf -o output/
 ```
 
 ### Convert an Entire Folder
 ```bash
-python -m pdf2video.cli -i input/ -o output/
+./run.sh
+# or: python -m pdf2video.cli -i input/ -o output/
 ```
 
 ### Recursive Folder Scanning
 Convert all PDFs in subfolders and preserve directory structure:
 ```bash
-python -m pdf2video.cli -i input/ -o output/ --recursive
+./run.sh -r
+# or: python -m pdf2video.cli -i input/ -o output/ --recursive
 ```
 
 ### Custom Page Duration (e.g. 2.5 seconds per page)
 ```bash
-python -m pdf2video.cli -s 2.5
+./run.sh -s 2.5
+# or: python -m pdf2video.cli -s 2.5
 ```
 
 ### Custom Music Volume & Fade-Out Duration
 Set background music volume to 10% with a 3-second fade-out:
 ```bash
-python -m pdf2video.cli --volume 0.10 --fade-out 3.0
+./run.sh --volume 0.10 --fade-out 3.0
+# or: python -m pdf2video.cli --volume 0.10 --fade-out 3.0
 ```
 
 ### Overwrite Existing Videos
 By default, existing output files are skipped. Force re-encoding:
 ```bash
-python -m pdf2video.cli --overwrite
+./run.sh overwrite
+# or: make overwrite
+# or: python -m pdf2video.cli --overwrite
 ```
 
 ### Dry Run (Preview Actions Without Encoding)
 ```bash
-python -m pdf2video.cli --dry-run
+./run.sh dry
+# or: make dry
+# or: python -m pdf2video.cli --dry-run
 ```
 
 ### High Sharpness Mode (CRF 20, Preset Slower)
 ```bash
-python -m pdf2video.cli --crf 20 --preset slower
+./run.sh --crf 20 --preset slower
+# or: python -m pdf2video.cli --crf 20 --preset slower
 ```
 
 ---
@@ -162,6 +172,8 @@ Place your audio track (`.mp3`, `.wav`, `.m4a`, `.aac`, `.flac`, `.ogg`) inside 
 ## Project Structure
 
 ```text
+├── run.sh                  # One-click execution shortcut script
+├── Makefile                # Make targets (make run, make dry, make test)
 ├── config.yaml             # Central configuration file with commented options
 ├── input/                  # Default folder for input PDF files (.gitkeep)
 ├── music/                  # Default folder for background music files (.gitkeep)
