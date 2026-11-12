@@ -29,6 +29,7 @@ build/
 # Temporary files and directories
 temp_*
 *.tmp*
+.tmp*
 tmp/
 
 # Media and data exclusions (never commit user media or copyrighted audio)

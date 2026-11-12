@@ -5,16 +5,18 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pdf2video"
 version = "1.0.0"
-description = "Clean, production-quality CLI tool that converts PDF files into high-quality videos with background music"
+description = "Clean, production-quality CLI tool that converts PDF files into high-quality, lightweight MP4 videos with background music."
 readme = "README.md"
 requires-python = ">=3.9"
 authors = [
-    { name = "pdf2video contributors" }
+    { name = "PDF to Video Contributors" }
 ]
-keywords = ["pdf", "video", "converter", "ffmpeg", "slideshow"]
+keywords = ["pdf", "video", "converter", "ffmpeg", "mp4", "pymupdf", "slides"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
     "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -26,14 +28,14 @@ classifiers = [
 ]
 dependencies = [
     "pymupdf>=1.24.0",
-    "Pillow>=10.0.0",
+    "pillow>=10.0.0",
     "PyYAML>=6.0",
     "tqdm>=4.66.0",
 ]
 
 [project.optional-dependencies]
-dev = [
-    "pytest>=8.0.0",
+test = [
+    "pytest>=7.0.0",
 ]
 
 [project.scripts]
